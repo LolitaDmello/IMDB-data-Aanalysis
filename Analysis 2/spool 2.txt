@@ -1,0 +1,206 @@
+SQL> -- WE ARE JOING THE TABLES TITLE_PRINCIPALS,TITLE_BASICS, NAME_BASICS  WITH THE PARAMETERS BASED ON THE PRIMARY KEYS
+SQL> -- NOW WE ARE FITERING THE DATA BASED ON STARTYEAR BETWEEN '1926' AND '1930' titletype AS 'movie' FOR MALE
+SQL> -- NOW WE COUNT BY GROUP IT BY NCONST THEN PRIMARY NAME AND THEN BY START YEAR
+SQL> -- WE SORT THE DATA BY DESC,TB.STARTYEAR ASC,NB.PRIMARYNAME ASC
+SQL> -- PRINT ONLY THE FIRST ROW
+SQL> --max for actor 1
+SQL> SELECT
+  2  	     NB.NCONST,
+  3  	     NB.PRIMARYNAME,
+  4  	     TB.STARTYEAR,COUNT(*) AS MOVIES_COUNT
+  5  FROM sharmac.TITLE_PRINCIPALS  TP
+  6  INNER JOIN sharmac.TITLE_BASICS TB
+  7  	 ON TP.TCONST = tb.tconst
+  8  INNER JOIN  sharmac.NAME_BASICS NB
+  9  	 ON NB.NCONST = tp.nconst
+ 10  WHERE (TB.STARTYEAR BETWEEN '1926' AND '1930') AND (tb.titletype='movie') AND (tp.category = 'actor')
+ 11  GROUP BY NB.NCONST,NB.PRIMARYNAME , TB.STARTYEAR
+ 12  ORDER BY COUNT(*) DESC,TB.STARTYEAR ASC,NB.PRIMARYNAME ASC
+ 13  FETCH FIRST 1 ROWS ONLY;
+
+NCONST                                                                          
+----------                                                                      
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR MOVIES_COUNT                                                               
+---- ------------                                                               
+nm1272494                                                                       
+Taisuke Matsumoto                                                               
+1926           23                                                               
+                                                                                
+
+Elapsed: 00:00:01.81
+SQL> 
+SQL> -- max for actress 2
+SQL> 
+SQL> -- WE ARE JOING THE TABLES TITLE_PRINCIPALS,TITLE_BASICS, NAME_BASICS  WITH THE PARAMETERS BASED ON THE PRIMARY KEYS
+SQL> -- NOW WE ARE FITERING THE DATA BASED ON STARTYEAR BETWEEN '1926' AND '1930' titletype AS 'movie' FOR FEMALE
+SQL> -- NOW WE COUNT BY GROUP IT BY NCONST THEN PRIMARY NAME AND THEN BY START YEAR
+SQL> -- WE SORT THE DATA COUNT(*) DESC,TB.STARTYEAR ASC,NB.PRIMARYNAME ASC
+SQL> -- WE PRINT ONLY THE FIRST ROW
+SQL> 
+SQL> SELECT  NB.NCONST,
+  2  	     NB.PRIMARYNAME,
+  3  	     TB.STARTYEAR,COUNT(*) AS MOVIES_COUNT
+  4  FROM sharmac.TITLE_PRINCIPALS  TP
+  5  INNER JOIN sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = tb.tconst
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON NB.NCONST = tp.nconst
+  9  WHERE (TB.STARTYEAR BETWEEN '1926' AND '1930') AND (tb.titletype='movie') AND (tp.category = 'actress')
+ 10  GROUP BY NB.NCONST,NB.PRIMARYNAME , TB.STARTYEAR
+ 11  ORDER BY COUNT(*) DESC,TB.STARTYEAR ASC,NB.PRIMARYNAME ASC
+ 12  FETCH FIRST 1 ROWS ONLY;
+
+NCONST                                                                          
+----------                                                                      
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR MOVIES_COUNT                                                               
+---- ------------                                                               
+nm0361677                                                                       
+Komako Hara                                                                     
+1930           15                                                               
+                                                                                
+
+Elapsed: 00:00:01.62
+SQL> 
+SQL> 
+SQL> -- male fisrt with 4 movies
+SQL> 
+SQL> -- WE ARE JOING THE TABLES TITLE_PRINCIPALS,TITLE_BASICS, NAME_BASICS  WITH THE PARAMETERS BASED ON THE PRIMARY KEYS
+SQL> -- NOW WE ARE FITERING THE DATA BASED ON STARTYEAR BETWEEN '1926' AND '1930' titletype AS 'movie' FOR MALE
+SQL> -- NOW WE COUNT BY GROUP IT BY NCONST THEN PRIMARY NAME AND THEN BY START YEAR
+SQL> -- WE SORT THE DATA BY COUNT(*) DESC,TB.STARTYEAR ASC,NB.PRIMARYNAME ASC
+SQL> -- PRINT ONLY THE FIRST ROW
+SQL> 
+SQL> SELECT  NB.NCONST,
+  2  	     NB.PRIMARYNAME,
+  3  	     TB.STARTYEAR,COUNT(*) AS MOVIES_COUNT
+  4  FROM sharmac.TITLE_PRINCIPALS  TP
+  5  INNER JOIN sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = tb.tconst
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON NB.NCONST = tp.nconst
+  9  WHERE (TB.STARTYEAR BETWEEN '1926' AND '1930' ) AND (tb.titletype='movie') AND (tp.category = 'actor')
+ 10  GROUP BY NB.NCONST,NB.PRIMARYNAME , TB.STARTYEAR
+ 11  HAVING COUNT(*)>3
+ 12  ORDER BY COUNT(*) ASC,TB.STARTYEAR ASC,NB.PRIMARYNAME ASC
+ 13  FETCH FIRST 1 ROWS ONLY;
+
+NCONST                                                                          
+----------                                                                      
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR MOVIES_COUNT                                                               
+---- ------------                                                               
+nm1033659                                                                       
+'Big' Bill Wilson                                                               
+1926            4                                                               
+                                                                                
+
+Elapsed: 00:00:02.24
+SQL> 
+SQL> 
+SQL> -- male last with 4 movies
+SQL> 
+SQL> -- WE ARE JOING THE TABLES TITLE_PRINCIPALS,TITLE_BASICS, NAME_BASICS  WITH THE PARAMETERS BASED ON THE PRIMARY KEYS
+SQL> -- NOW WE ARE FITERING THE DATA BASED ON STARTYEAR BETWEEN '1926' AND '1930' titletype AS 'movie' FOR MALE
+SQL> -- NOW WE COUNT BY GROUP IT BY NCONST THEN PRIMARY NAME AND THEN BY START YEAR
+SQL> -- SORT BY COUNT(*) ASC,TB.STARTYEAR DESC,NB.PRIMARYNAME desc
+SQL> -- PRINT ONLY THE FIRST ROW
+SQL> 
+SQL> SELECT  NB.NCONST,
+  2  	     NB.PRIMARYNAME,
+  3  	     TB.STARTYEAR,COUNT(*) AS MOVIES_COUNT
+  4  FROM sharmac.TITLE_PRINCIPALS  TP
+  5  INNER JOIN sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = tb.tconst
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON NB.NCONST = tp.nconst
+  9  WHERE (TB.STARTYEAR BETWEEN '1926' AND '1930'  ) AND (tb.titletype='movie') AND (tp.category = 'actor')
+ 10  GROUP BY NB.NCONST,NB.PRIMARYNAME , TB.STARTYEAR
+ 11  HAVING COUNT(*)>3
+ 12  ORDER BY COUNT(*) ASC,TB.STARTYEAR DESC,NB.PRIMARYNAME desc
+ 13  FETCH FIRST 1 ROWS ONLY;
+
+NCONST                                                                          
+----------                                                                      
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR MOVIES_COUNT                                                               
+---- ------------                                                               
+nm1168078                                                                       
+Y??nosuke Toba                                                                  
+1930            4                                                               
+                                                                                
+
+Elapsed: 00:00:02.25
+SQL> 
+SQL> -- female first with 4 movies
+SQL> -- WE ARE JOING THE TABLES TITLE_PRINCIPALS,TITLE_BASICS, NAME_BASICS  WITH THE PARAMETERS BASED ON THE PRIMARY KEYS
+SQL> -- NOW WE ARE FITERING THE DATA BASED ON STARTYEAR BETWEEN '1926' AND '1930' titletype AS 'movie' FOR FEMALE
+SQL> -- NOW WE COUNT BY GROUP IT BY NCONST THEN PRIMARY NAME AND THEN BY START YEAR
+SQL> -- WE SORT THE DATA BYORDER BY COUNT(*) ASC,TB.STARTYEAR ASC,NB.PRIMARYNAME ASC
+SQL> -- PRINT ONLY THE FIRST 4 MOVIES
+SQL> SELECT  NB.NCONST,
+  2  	     NB.PRIMARYNAME,
+  3  	     TB.STARTYEAR,COUNT(*) AS MOVIES_COUNT
+  4  FROM sharmac.TITLE_PRINCIPALS  TP
+  5  INNER JOIN sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = tb.tconst
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON NB.NCONST = tp.nconst
+  9  WHERE (TB.STARTYEAR BETWEEN '1926' AND '1930' ) AND (tb.titletype='movie') AND (tp.category = 'actress')
+ 10  GROUP BY NB.NCONST,NB.PRIMARYNAME , TB.STARTYEAR
+ 11  HAVING COUNT(*)>3
+ 12  ORDER BY COUNT(*) ASC,TB.STARTYEAR ASC,NB.PRIMARYNAME ASC
+ 13  FETCH FIRST 1 ROWS ONLY;
+
+NCONST                                                                          
+----------                                                                      
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR MOVIES_COUNT                                                               
+---- ------------                                                               
+nm0482115                                                                       
+Alice Lake                                                                      
+1926            4                                                               
+                                                                                
+
+Elapsed: 00:00:01.76
+SQL> 
+SQL> --female last with 4 movies
+SQL> -- WE ARE JOING THE TABLES TITLE_PRINCIPALS,TITLE_BASICS, NAME_BASICS  WITH THE PARAMETERS BASED ON THE PRIMARY KEYS
+SQL> -- NOW WE ARE FITERING THE DATA BASED ON STARTYEAR BETWEEN '1926' AND '1930' titletype AS 'movie' FOR FEMALE
+SQL> -- NOW WE COUNT BY GROUP IT BY NCONST THEN PRIMARY NAME AND THEN BY START YEAR
+SQL> -- SORT BY BY COUNT(*) ASC,TB.STARTYEAR DESC,NB.PRIMARYNAME desc
+SQL> -- PRINT ONLY THE FIRST ROW
+SQL> SELECT  NB.NCONST,
+  2  	     NB.PRIMARYNAME,
+  3  	     TB.STARTYEAR,COUNT(*) AS MOVIES_COUNT
+  4  FROM sharmac.TITLE_PRINCIPALS  TP
+  5  INNER JOIN sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = tb.tconst
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON NB.NCONST = tp.nconst
+  9  WHERE (TB.STARTYEAR BETWEEN '1926' AND '1930') AND (tb.titletype='movie') AND (tp.category = 'actress')
+ 10  GROUP BY NB.NCONST,NB.PRIMARYNAME , TB.STARTYEAR
+ 11  HAVING COUNT(*)>3
+ 12  ORDER BY COUNT(*) ASC,TB.STARTYEAR DESC,NB.PRIMARYNAME desc
+ 13  FETCH FIRST 1 ROWS ONLY;
+
+NCONST                                                                          
+----------                                                                      
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR MOVIES_COUNT                                                               
+---- ------------                                                               
+nm0781876                                                                       
+Vivienne Segal                                                                  
+1930            4                                                               
+                                                                                
+
+Elapsed: 00:00:01.70
+SQL> 
+SQL> set echo off;

@@ -1,0 +1,311 @@
+SQL> 
+SQL> SELECT
+  2  	 TB.STARTYEAR as Year,NB.PRIMARYNAME as ActorName,
+  3  	 COUNT(*) AS Movie_Count
+  4  FROM sharmac.TITLE_PRINCIPALS TP
+  5  INNER JOIN  sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = TB.TCONST
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON TP.NCONST = NB.NCONST
+  9  WHERE (TB.GENRES like '%Action%Thriller%' and TB.startyear between '1926' and '1930'
+ 10  AND TB.titletype='movie' AND TP.category LIKE '%actor%'
+ 11  AND NOT(TB.startyear like '%\N'))
+ 12  GROUP BY NB.PRIMARYNAME,TB.STARTYEAR
+ 13  ORDER BY TB.STARTYEAR ASC;
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+1927                                                                            
+Billy Franey                                                                    
+          1                                                                     
+                                                                                
+1927                                                                            
+Earle Williams                                                                  
+          1                                                                     
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+                                                                                
+1927                                                                            
+George B. French                                                                
+          1                                                                     
+                                                                                
+1927                                                                            
+Henry A. Barrows                                                                
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+          1                                                                     
+                                                                                
+1927                                                                            
+J.P. McGowan                                                                    
+          1                                                                     
+                                                                                
+1927                                                                            
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+Reed Howes                                                                      
+          1                                                                     
+                                                                                
+1927                                                                            
+Wallace MacDonald                                                               
+          1                                                                     
+                                                                                
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+1927                                                                            
+William F. Moran                                                                
+          1                                                                     
+                                                                                
+1928                                                                            
+Bernhard Goetzke                                                                
+          1                                                                     
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+                                                                                
+1928                                                                            
+Earl Gunn                                                                       
+          1                                                                     
+                                                                                
+1928                                                                            
+Eugene Burr                                                                     
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+          1                                                                     
+                                                                                
+1928                                                                            
+Jack La Rue                                                                     
+          1                                                                     
+                                                                                
+1928                                                                            
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+Nikolay Khmelyov                                                                
+          1                                                                     
+                                                                                
+1928                                                                            
+Pat J. O'Brien                                                                  
+          1                                                                     
+                                                                                
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+1928                                                                            
+Roy Watson                                                                      
+          1                                                                     
+                                                                                
+1928                                                                            
+Sergey Komarov                                                                  
+          1                                                                     
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+                                                                                
+1928                                                                            
+Vladimir Fogel                                                                  
+          1                                                                     
+                                                                                
+1929                                                                            
+Jan W. Speerger                                                                 
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+          1                                                                     
+                                                                                
+1929                                                                            
+Milos Frgal                                                                     
+          1                                                                     
+                                                                                
+1929                                                                            
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+V??clav Jon??s                                                                  
+          1                                                                     
+                                                                                
+1930                                                                            
+Charles Bickford                                                                
+          1                                                                     
+                                                                                
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+1930                                                                            
+George F. Marion                                                                
+          1                                                                     
+                                                                                
+1930                                                                            
+Nils Asther                                                                     
+          1                                                                     
+
+YEAR                                                                            
+----                                                                            
+ACTORNAME                                                                       
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+                                                                                
+
+23 rows selected.
+
+Elapsed: 00:00:06.32
+SQL> 
+SQL> --For Actress
+SQL> --Query: list the Actress name who have acted in movies with genres (Action, Thriller) between year 1926 and 1930,
+SQL> -- list the year and count of such movies for each year.
+SQL> 
+SQL> SELECT
+  2  	 TB.STARTYEAR as Year,NB.PRIMARYNAME as ActressName,
+  3  	 COUNT(*) AS Movie_Count
+  4  FROM sharmac.TITLE_PRINCIPALS TP
+  5  INNER JOIN  sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = TB.TCONST
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON TP.NCONST = NB.NCONST
+  9  WHERE (TB.GENRES like '%Action%Thriller%' and TB.startyear between '1926' and '1930'
+ 10  AND TB.titletype='movie' AND TP.category LIKE '%actress%' AND
+ 11  NOT(TB.startyear like '%\N'))
+ 12  GROUP BY NB.PRIMARYNAME,TB.STARTYEAR
+ 13  ORDER BY TB.STARTYEAR ASC;
+
+YEAR                                                                            
+----                                                                            
+ACTRESSNAME                                                                     
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+1927                                                                            
+Dot Farley                                                                      
+          1                                                                     
+                                                                                
+1927                                                                            
+Eva Novak                                                                       
+          1                                                                     
+
+YEAR                                                                            
+----                                                                            
+ACTRESSNAME                                                                     
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+                                                                                
+1927                                                                            
+Ruth Dwyer                                                                      
+          1                                                                     
+                                                                                
+1927                                                                            
+Sylvia Ashton                                                                   
+
+YEAR                                                                            
+----                                                                            
+ACTRESSNAME                                                                     
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+          1                                                                     
+                                                                                
+1928                                                                            
+Dorothy Tallcot                                                                 
+          1                                                                     
+                                                                                
+1928                                                                            
+
+YEAR                                                                            
+----                                                                            
+ACTRESSNAME                                                                     
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+Natalya Rozenel                                                                 
+          1                                                                     
+                                                                                
+1928                                                                            
+Valerie Burr                                                                    
+          1                                                                     
+                                                                                
+
+YEAR                                                                            
+----                                                                            
+ACTRESSNAME                                                                     
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+1929                                                                            
+Nelly Ardenov??                                                                 
+          1                                                                     
+                                                                                
+1930                                                                            
+Raquel Torres                                                                   
+          1                                                                     
+
+YEAR                                                                            
+----                                                                            
+ACTRESSNAME                                                                     
+--------------------------------------------------------------------------------
+MOVIE_COUNT                                                                     
+-----------                                                                     
+                                                                                
+
+9 rows selected.
+
+Elapsed: 00:00:05.72
+SQL> 
+SQL> 
+SQL> set echo off;

@@ -1,0 +1,487 @@
+SQL> SELECT
+  2  	 NB.PRIMARYNAME,TB.STARTYEAR,
+  3  	 COUNT(*) AS YEAR_COUNT
+  4  FROM sharmac.TITLE_PRINCIPALS TP
+  5  INNER JOIN  sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = TB.TCONST
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON TP.NCONST = NB.NCONST
+  9  WHERE ((TP.NCONST = 'nm0000151') AND (tb.titletype='movie') AND (tb.startyear!='\N'))
+ 10  GROUP BY NB.PRIMARYNAME,TB.STARTYEAR
+ 11  ORDER BY TB.STARTYEAR ASC;
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+1980          1                                                                 
+                                                                                
+Morgan Freeman                                                                  
+1985          1                                                                 
+                                                                                
+Morgan Freeman                                                                  
+1988          1                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+1989          4                                                                 
+                                                                                
+Morgan Freeman                                                                  
+1991          2                                                                 
+                                                                                
+Morgan Freeman                                                                  
+1992          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+1993          1                                                                 
+                                                                                
+Morgan Freeman                                                                  
+1994          1                                                                 
+                                                                                
+Morgan Freeman                                                                  
+1995          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+1996          2                                                                 
+                                                                                
+Morgan Freeman                                                                  
+1997          3                                                                 
+                                                                                
+Morgan Freeman                                                                  
+1998          3                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+2000          2                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2001          1                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2002          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+2003          3                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2004          3                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2005          5                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+2006          3                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2007          4                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2008          4                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+2009          3                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2010          1                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2011          1                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+2012          2                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2013          4                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2014          4                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+2015          2                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2016          2                                                                 
+                                                                                
+Morgan Freeman                                                                  
+2017          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Morgan Freeman                                                                  
+2018          2                                                                 
+                                                                                
+
+31 rows selected.
+
+Elapsed: 00:00:01.25
+SQL> 
+SQL> 
+SQL> -- Query- compute the number (count) of movies Mila kunis have participated in by year during her career
+SQL> -- where The number of rows gives the number of years they have been acting.
+SQL> -- (Mila kunis unique ID- 'nm0005109')
+SQL> 
+SQL> SELECT
+  2  	 NB.PRIMARYNAME,TB.STARTYEAR,
+  3  	 COUNT(*) AS YEAR_COUNT
+  4  FROM sharmac.TITLE_PRINCIPALS TP
+  5  INNER JOIN  sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = TB.TCONST
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON TP.NCONST = NB.NCONST
+  9  WHERE ((TP.NCONST = 'nm0005109') AND (tb.titletype='movie')AND (tb.startyear!='\N'))
+ 10  GROUP BY NB.PRIMARYNAME,TB.STARTYEAR
+ 11  ORDER BY TB.STARTYEAR ASC;
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Mila Kunis                                                                      
+2004          1                                                                 
+                                                                                
+Mila Kunis                                                                      
+2007          1                                                                 
+                                                                                
+Mila Kunis                                                                      
+2008          3                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Mila Kunis                                                                      
+2009          2                                                                 
+                                                                                
+Mila Kunis                                                                      
+2010          2                                                                 
+                                                                                
+Mila Kunis                                                                      
+2011          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Mila Kunis                                                                      
+2012          2                                                                 
+                                                                                
+Mila Kunis                                                                      
+2013          3                                                                 
+                                                                                
+Mila Kunis                                                                      
+2014          1                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Mila Kunis                                                                      
+2015          2                                                                 
+                                                                                
+Mila Kunis                                                                      
+2016          1                                                                 
+                                                                                
+Mila Kunis                                                                      
+2017          1                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Mila Kunis                                                                      
+2018          1                                                                 
+                                                                                
+Mila Kunis                                                                      
+2019          1                                                                 
+                                                                                
+
+14 rows selected.
+
+Elapsed: 00:00:01.04
+SQL> 
+SQL> 
+SQL> -- Query- compute the number (count) of movies shah rukh khan have participated in by year during his career
+SQL> -- where The number of rows gives the number of years they have been acting.
+SQL> -- (shah rukh khan unique ID- 'nm0451321')
+SQL> 
+SQL> SELECT
+  2  	 NB.PRIMARYNAME,TB.STARTYEAR,
+  3  	 COUNT(*) AS YEAR_COUNT
+  4  FROM sharmac.TITLE_PRINCIPALS TP
+  5  INNER JOIN  sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = TB.TCONST
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON TP.NCONST = NB.NCONST
+  9  WHERE ((TP.NCONST = 'nm0451321') AND (tb.titletype='movie')AND (tb.startyear!='\N'))
+ 10  GROUP BY NB.PRIMARYNAME,TB.STARTYEAR
+ 11  ORDER BY TB.STARTYEAR ASC;
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Shah Rukh Khan                                                                  
+1992          3                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+1993          4                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+1994          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Shah Rukh Khan                                                                  
+1995          7                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+1996          3                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+1997          4                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Shah Rukh Khan                                                                  
+1998          3                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+1999          1                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2000          5                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Shah Rukh Khan                                                                  
+2001          3                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2002          3                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2003          3                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Shah Rukh Khan                                                                  
+2004          5                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2005          2                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2006          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Shah Rukh Khan                                                                  
+2007          2                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2008          1                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2010          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Shah Rukh Khan                                                                  
+2011          2                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2012          1                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2013          1                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Shah Rukh Khan                                                                  
+2014          1                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2015          1                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2016          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Shah Rukh Khan                                                                  
+2017          1                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2018          2                                                                 
+                                                                                
+Shah Rukh Khan                                                                  
+2019          1                                                                 
+                                                                                
+
+27 rows selected.
+
+Elapsed: 00:00:01.01
+SQL> 
+SQL> 
+SQL> -- Query- compute the number (count) of movies Anushka Shetty have participated in by year during her career
+SQL> -- where The number of rows gives the number of years they have been acting.
+SQL> -- (Anushka Shetty unique ID- 'nm2011932')
+SQL> 
+SQL> SELECT
+  2  	 NB.PRIMARYNAME,TB.STARTYEAR,
+  3  	 COUNT(*) AS YEAR_COUNT
+  4  FROM sharmac.TITLE_PRINCIPALS TP
+  5  INNER JOIN  sharmac.TITLE_BASICS TB
+  6  	 ON TP.TCONST = TB.TCONST
+  7  INNER JOIN  sharmac.NAME_BASICS NB
+  8  	 ON TP.NCONST = NB.NCONST
+  9  WHERE ((TP.NCONST = 'nm2011932') AND (tb.titletype='movie')AND (tb.startyear!='\N'))
+ 10  GROUP BY NB.PRIMARYNAME,TB.STARTYEAR
+ 11  ORDER BY TB.STARTYEAR ASC;
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Anushka Shetty                                                                  
+2005          1                                                                 
+                                                                                
+Anushka Shetty                                                                  
+2006          2                                                                 
+                                                                                
+Anushka Shetty                                                                  
+2007          2                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Anushka Shetty                                                                  
+2008          4                                                                 
+                                                                                
+Anushka Shetty                                                                  
+2009          3                                                                 
+                                                                                
+Anushka Shetty                                                                  
+2010          7                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Anushka Shetty                                                                  
+2011          2                                                                 
+                                                                                
+Anushka Shetty                                                                  
+2012          2                                                                 
+                                                                                
+Anushka Shetty                                                                  
+2013          4                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Anushka Shetty                                                                  
+2014          1                                                                 
+                                                                                
+Anushka Shetty                                                                  
+2015          4                                                                 
+                                                                                
+Anushka Shetty                                                                  
+2017          4                                                                 
+                                                                                
+
+PRIMARYNAME                                                                     
+--------------------------------------------------------------------------------
+STAR YEAR_COUNT                                                                 
+---- ----------                                                                 
+Anushka Shetty                                                                  
+2018          1                                                                 
+                                                                                
+
+13 rows selected.
+
+Elapsed: 00:00:00.93
+SQL> 
+SQL> --end of analysis 1
+SQL> 
+SQL> set echo off;
